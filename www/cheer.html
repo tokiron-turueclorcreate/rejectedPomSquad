@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/onsen-css-components_pink.css">
+    
+</head>
+<body>
+    <ons-page>
+    <div class="page__background" style="background-color: #fff0f5"></div>
+
+        <!-- ツールバー -->
+        <ons-toolbar>
+            <div class="left" style="padding-left: 8px;">
+                <ons-back-button onclick="goBack()">Back</ons-back-button>
+            </div>
+            <div class="center">
+                設定
+            </div>
+        </ons-toolbar>
+        
+        <!-- 中身 -->
+        <div style="padding-left: 8px; padding-raight; 8px;">
+             <p style="text-align: center;"><b>応援メッセージ表示設定</b></p>
+            
+            <!-- schedule -->
+            <h4 class="section" style="text-align: center;">メッセージ表示</h4>
+            <div class="container" style="text-align: center;">
+                <ons-button onclick="scheduleMinutely()">セット</ons-button>
+                <div>
+                    <small>
+                        セットボタンを押すと1時間おきに<br />
+                        同じメッセージが繰り返し表示されます。
+                    </small>
+                </div>
+            </div>
+            <!-- cancel -->
+            <h4 class="section" style="text-align: center;">設定をクリア</h4>
+             
+            <div class="container" style="text-align: center;">
+                <ons-button onclick="cancelAll()">キャンセル</ons-button>
+                <div>
+                    <small>
+                        キャンセルボタンを押すと表示が止まります。
+                    </small>
+                </div>
+            </div>
+        </div>
+            <script type="text/javascript">
+              var id = 1;
+              //permission
+              hasPermission = function () {
+                cordova.plugins.notification.local.hasPermission(function (granted) {
+                  alert(granted ? 'Yes' : 'No');
+                });
+              };
+              //schedule
+              schedule = function () {
+                cordova.plugins.notification.local.schedule(
+                  {
+                    id: 1,
+                    text: 'Test Message 1',
+                    sound: null,
+                    data: {
+                      test: id
+                    }
+                  });
+              };
+              scheduleMinutely = function () {
+                alert("設定しました")
+                var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
+                cordova.plugins.notification.local.schedule(
+                  {
+                    id: 1,
+                    text: 'あなたにふさわしいのは、優しくて思慮深くて約束を守ってくれる人。だって、あなたがそうなんだから。',
+                    every: 'hour',
+                    sound: sound
+                  });
+              };
+              //cancel
+              cancelAll = function () {
+                cordova.plugins.notification.local.cancelAll(function () {
+                  alert("設定解除しました");
+                }, this);
+              }
+              //back
+                goBack = function (){
+                    history.back();
+                }
+                </script>
+
+    </ons-page>
+</body>
+</html>

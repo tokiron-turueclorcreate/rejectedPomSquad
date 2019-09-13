@@ -1,0 +1,24 @@
+.card {
+    background-color: white;
+    background-image: url('../img/dawn.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    color: black;
+    height: 73%
+}
+
+.card-name {
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 0 5px 0;
+  text-align: center;
+}
+
+.card-desc {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.9;
+  text-align: center;
+  line-height: 1.4;
+}

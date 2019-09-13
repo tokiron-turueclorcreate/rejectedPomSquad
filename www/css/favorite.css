@@ -1,0 +1,10 @@
+.feed-item .fa-star,.fa-star-o {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 150%
+}
+
+.feed-item .fa-star {
+    color: #ff00ff;
+}

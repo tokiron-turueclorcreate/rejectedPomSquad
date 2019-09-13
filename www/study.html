@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/onsen-css-components_pink.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/favorite.css">
+    <script src="js/feeder.js"></script>
+    <script src="js/favorite-online.js"></script>
+    
+    <script>
+    var feedUrl = typeof window.cordova == "undefined" ? "./rss.xml" : "http://study-help.pomsquad.tech/?feed=rss2";
+        
+    $(function() {
+        var application_key = "1089da23e76f91c13f22a89e42a1f2980a87902fd5c4d18f0acf213b6230c451";
+        var client_key      = "3a391f251127a72963001e13aed1e9f962ae29d33b7c1c674750b76ce24573c7";
+        
+        // お気に入りクラスを定義します
+        // 内容は www/js/favorite-online.js になります
+        var favorite = new Favorite({
+            applicationKey: application_key,
+            clientKey: client_key
+        });
+    
+        var feed = new Feed({
+            url: feedUrl,      // カンマの追加を忘れずに
+            favorite: favorite // 追加
+        });
+            
+        
+        $('.button').click(function() {
+          console.log('Reload.');
+          feed.load();
+        });
+        
+        feed.load();
+        
+    });
+    
+</script>
+    
+</head>
+<body>
+<ons-page>
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button onclick="goBack()">
+                Back
+            </ons-back-button>            
+        </div>
+        <div class="center">資料室</div>
+    </ons-toolbar>  
+
+    <div class="button">Reload</div>            
+    <div style="margin: 6px 70px 6px 6px;">
+        ☆をタップしてお気に入り登録<br />数字＝お気に入り登録人数
+    </div>
+      
+    <div id="mask">
+      <div id="loading"><img src="img/loading.gif"></div>
+    </div>
+    
+    <ul id="feed-list"></ul>
+    <p id="error-message"></p>
+</ons-page>
+<script>
+    //back
+    goBack = function (){
+        history.back();
+    }
+</script>
+</body>
+</html>

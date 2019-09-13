@@ -1,0 +1,80 @@
+/* topdoc
+  name: MyButton
+  class: myButton
+  modifiers:
+    :active: Active state
+    :disabled: Disabled state
+    :focus: Focused
+  markup:
+    <button class="myButton">Button</button>
+    <button class="myButton" disabled>Button</button>
+*/
+.myButton {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  line-height: normal;
+  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: auto;
+  text-decoration: none;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #fff;
+  vertical-align: middle;
+  background-color: #f0f;
+  border: 0px solid currentColor;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.myButton:hover {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.myButton:active {
+  background-color: #f0f;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  opacity: 0.2;
+}
+.myButton:focus {
+  outline: 0;
+}
+.myButton:disabled,
+.myButton[disabled] {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}

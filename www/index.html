@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/onsen-css-components_pink.css">
+    <script src="js/main.js"></script>
+    <script src="js/reassuring.js"></script>
+    <link rel="stylesheet" href="css/card_aff.css">
+</head>
+<body>
+    <ons-page>
+    <div class="page__background" style="background-color: #fff0f5"></div>
+
+        <!-- ツールバー -->
+        <ons-toolbar>
+            <div class="center">
+                ホーム
+            </div>
+        </ons-toolbar>
+        
+        <!-- タブバー -->
+        <div class="tab-bar" style="z-index: 3">
+            <label class="tab-bar__item">
+                <input type="radio" name="tab-bar-a" checked="checked">
+                <button class="tab-bar__button">
+                    <i class="tab-bar__icon ion-ios-heart"></i>
+                    <div class="tab-bar__label">ホーム</div>
+                </button>
+            </label>
+            
+            <label class="tab-bar__item">
+                <input type="radio" name="tab-bar-a">
+                <button class="tab-bar__button">
+                    <i class="tab-bar__icon ion-university"></i>
+                    <div class="tab-bar__label">資料室</div>
+                </button>
+            </label>
+            
+            <label class="tab-bar__item">
+                <input type="radio" name="tab-bar-a">
+                <button class="tab-bar__button">
+                    <i class="tab-bar__icon ion-ios-more"></i>
+                    <div class="tab-bar__label">その他</div>
+                </button>
+            </label>
+            
+        </div>  
+        
+        <!-- 中身 -->
+            <div class="card">
+                <div class="card-name">いつもがんばっているあなたへ</div>
+                <div class="card-desc" id="squwads">
+                    <output></output>
+                </div>
+            </div>
+            <section style="padding-left: 8px; padding-right: 8px;">
+                <ons-button modifier="large" id="myMessage">メッセージ表示設定</ons-button>
+            </section>
+    <script>
+        /* [メッセージ表示間隔設定]ボタンのアクション */
+        //イベントを設定する[メッセージ表示設定]を読み出し
+        var ele1 = document.getElementById("myMessage");
+        //ボタンにイベントリスナーを設定
+        ele1.addEventListener("click", function(evt){
+            //click処理
+            document.location.href="cheer.html";
+            //defaultのイベント禁止
+            evt.preventDefault();
+            //イベント伝達禁止
+            evt.stopPropagation();
+        }, false);
+    </script>
+    </ons-page>
+</body>
+</html>

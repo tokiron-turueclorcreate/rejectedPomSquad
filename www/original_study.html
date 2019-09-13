@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/onsen-css-components_pink.css">
+    <script src="js/main.js"></script>
+    
+</head>
+<body>
+    <ons-page>
+    <div class="page__background" style="background-color: #fff0f5"></div>
+
+        <!-- ツールバー -->
+        <ons-toolbar>
+            <div class="center">
+                勉強
+            </div>
+        </ons-toolbar>
+        
+        <!-- タブバー -->
+        <div class="tab-bar">
+            <label class="tab-bar__item">
+                <input type="radio" name="tab-bar-a">
+                <button class="tab-bar__button">
+                    <i class="tab-bar__icon ion-home"></i>
+                    <div class="tab-bar__label">ホーム</div>
+                </button>
+            </label>
+            
+            <label class="tab-bar__item">
+                <input type="radio" name="tab-bar-a">
+                <button class="tab-bar__button">
+                    <i class="tab-bar__icon ion-heart"></i>
+                    <div class="tab-bar__label">SNS</div>
+                </button>
+            </label>
+            
+            <label class="tab-bar__item">
+                <input type="radio" name="tab-bar-a" checked="checked">
+                <button class="tab-bar__button">
+                    <i class="tab-bar__icon ion-university"></i>
+                    <div class="tab-bar__label">勉強</div>
+                </button>
+            </label>
+            
+            <label class="tab-bar__item">
+                <input type="radio" name="tab-bar-a">
+                <button class="tab-bar__button">
+                    <i class="tab-bar__icon ion-happy"></i>
+                    <div class="tab-bar__label">その他</div>
+                </button>
+            </label>
+        </div>  
+        
+        <!-- 中身 -->
+        <section style="padding: 10px">
+            <ons-card style="background-color: #afeeee">
+                <div style="font-size: small">
+                    <strong>どうしてこんなことになったの？<br />
+                    どうやって心の傷を治すの？<br />
+                    これから先どうすればいいの？<br />
+                    私は幸せになれるの？</strong><br />
+                </div>
+            </ons-card>
+            <ons-button modifier="large" id="study">教室へ Let's Go!</ons-button>
+            <h4>一緒に勉強をしましょう</h4>
+            <ul>
+                  <li>PTSD<small>（トラウマによる後遺症）</small>
+                  <br /><small>記憶が飛んでいるならトラウマかもしれません。</small></li>
+                  <li>ブログ等のリンク集</li>
+                  <li>自分のためにできる小さなこと</li>
+                  <li>書籍の紹介</li>
+                  <li>地方自治体やNPO団体</li>
+                  <li>英語の資料</li>
+                  <li>スピリチャル, etc.</li>
+            </ul>
+        </section>
+    </ons-page>
+<script type="text/javascript">
+//[教室へLet's Go]ボタンにイベントを設定する
+var ele = document.getElementById("study")
+//[教室へLet's Go]ボタンにイベントリスナーを設定
+ele.addEventListener("click", function(evt){
+    //click処理
+    window.open("http://study-help.pomsquad.tech/", target="_blank", location="yes");
+    //defaultのイベント禁止
+    evt.preventDefault();
+    //イベント伝達禁止
+    evt.stopPropagation();
+}, false);
+    </script>
+</body>
+</html>
